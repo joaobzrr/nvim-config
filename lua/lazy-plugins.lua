@@ -464,7 +464,6 @@ require('lazy').setup({
       },
     },
   },
-
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -575,55 +574,20 @@ require('lazy').setup({
       }
     end,
   },
-  --  {
-  --    'jesseleite/nvim-noirbuddy',
-  --    dependencies = {
-  --      { 'tjdevries/colorbuddy.nvim' },
-  --    },
-  --    lazy = false,
-  --    priority = 1000,
-  --    opts = {
-  --      -- All of your `setup(opts)` will go here
-  --    },
-  --    config = function()
-  --      require('noirbuddy').setup {
-  --        preset = 'miami-nights',
-  --        colors = {
-  --          primary = '#46B97E',
-  --          secondary = '#B94681',
-  --          noir_0 = '#F5F5F5',
-  --          noir_1 = '#DDDDDD',
-  --          noir_2 = '#C6C6C6',
-  --          noir_3 = '#AEAEAE',
-  --          noir_4 = '#979797',
-  --          noir_5 = '#7F7F7F',
-  --          noir_6 = '#686868',
-  --          noir_7 = '#505050',
-  --          noir_8 = '#393939',
-  --          noir_9 = '#212121',
-  --        },
-  --      }
-  --    end,
-  --  },
-
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'catppuccin/nvim',
+  {
+    'ramojus/mellifluous.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    config = function()
+      require('mellifluous').setup {
+        mellifluous = {
+          bg_contrast = 'hard',
+        },
+      }
+    end,
     init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      vim.cmd.colorscheme 'mellifluous'
     end,
   },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
